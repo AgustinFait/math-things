@@ -45,4 +45,5 @@ matrix *matrix_diagonal_inverse(matrix m);
 
 double matrix_det(matrix m);
 
+
 #endif
