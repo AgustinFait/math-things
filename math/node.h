@@ -3,6 +3,7 @@
 
 #include<stdio.h>
 #include<stdbool.h>
+#include <stdlib.h>
 
 enum step
 {
@@ -46,4 +47,7 @@ node* node_right(node* self);
 
 bool node_add_next(node* self,void *data,bool leaf_recognizer(void*));
 node* node_next(node* self);
+
+void reset(node* self);
+void reset_self_and_children(node* self);
 #endif

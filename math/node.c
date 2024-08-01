@@ -109,8 +109,8 @@ bool node_add_next(node* self,void *data,bool leaf_recognizer(void*))
 {
     if(!self)return false;
     if(leaf_recognizer(self->data))return false;
-    if(true_tree_add(self->left,data,leaf_recognizer))return true;
-    if(true_tree_add(self->right,data,leaf_recognizer))return true;
+    if(node_add_next(self->left,data,leaf_recognizer))return true;
+    if(node_add_next(self->right,data,leaf_recognizer))return true;
     if(!self->left)
     {
         self->left = node_create(data);
@@ -151,4 +151,18 @@ node* node_next(node* self)
         break;
     }
     return to_return;
+}
+
+void reset(node* self)
+{
+    if(self && self->left)self->next_step = GO_LEFT;
+}
+
+void reset_self_and_children(node* self)
+{
+    if(!self)return;
+    reset_self_and_children(self->left);
+    reset_self_and_children(self->right);
+
+    self->next_step = GO_LEFT;
 }

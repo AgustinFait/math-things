@@ -1,12 +1,10 @@
 #include "tree.h"
 
-bool true_tree_add(node* self,void *data,bool leaf_recognizer(void*));
-void *inside_tree_next(node* self);
 
 tree* tree_create(void* root)
 {
     tree* new = malloc(sizeof(tree));
-    new->root = node_create;
+    new->root = node_create(root);
     new->current = new->root;
     new->previous =NULL;
     return new;
@@ -27,4 +25,14 @@ void tree_add(tree* self,void *data,bool leaf_recognizer(void*))
 void* tree_next(tree* self)
 {
     return node_next(self->root)->data;
+}
+
+bool tree_has_next(tree* self)
+{
+    return self->root->next_step == DONE;
+}
+
+void tree_reset(tree *self)
+{
+
 }
