@@ -62,9 +62,9 @@ void search_function(lexeme *lex)
     for(int i = 0;i < 20;i++)function[i] = '\0';
     for(int i = 0;esLetra(c = getchar());i++)function[i] = c;
     ungetc(c,stdin);
-    if(strcmp(function,"ln"))lex->tipe = LN;
-    if(strcmp(function,"sin"))lex->tipe = SIN;
-    if(strcmp(function,"cos"))lex->tipe = COS;
-    if(strcmp(function,"tg"))lex->tipe = TG;
-    if(strcmp(function,"arctg"))lex->tipe = ARCTG;
+    if(!strcmp(function,"ln"))lex->tipe = LN;
+    if(!strcmp(function,"sin"))lex->tipe = SIN;
+    if(!strcmp(function,"cos"))lex->tipe = COS;
+    if(!strcmp(function,"tg"))lex->tipe = TG;
+    if(!strcmp(function,"arctg"))lex->tipe = ARCTG;
 }
